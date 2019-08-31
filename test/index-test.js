@@ -1,9 +1,7 @@
-function shout(string){
-  return string.toUpperCase()
-}
-describe('shout(string)', function shout(string) {
-  it('receives one argument and returns it in all caps', function shout(string) {
-    expect(shout('hello')).toEqual('HELLO'.toUpperCase).
+
+describe('shout(string)', function() {
+  it('receives one argument and returns it in all caps', function() {
+    expect(shout('hello')).toEqual('HELLO')
   })
 })
 
