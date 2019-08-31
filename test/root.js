@@ -1,30 +1,35 @@
-global.expect = require('expect');
+function shout(string) {
+	  return string.toUpperCase();
+	}
 
-const babel = require('babel-core');
-const jsdom = require('jsdom');
-const path = require('path');
+	function whisper(string) {
+	  return string.toLowerCase();
+	}
 
-before(function(done) {
-  const babelResult = babel.transformFileSync(
-    path.resolve(__dirname, '..', 'index.js'), {
-      presets: ['es2015']
-    }
-  );
+	function logShout(string) {
+	  console.log(string.toUpperCase());
+	}
 
-  const html = path.resolve(__dirname, '..', 'index.html')
+	function logWhisper(string) {
+	  console.log(string.toLowerCase());
+	}
 
-  jsdom.env(html, [], {
-    src: babelResult.code,
-    virtualConsole: jsdom.createVirtualConsole().sendTo(console)
-  }, (err, window) => {
-    if (err) {
-      return done(err);
-    }
+	function sayHiToGrandma(string) {
+	  if(string === string.toLowerCase()) {
+	    return "I can\'t hear you!";
+	  }
+	  if(string === string.toUpperCase()) {
+	    return "YES INDEED!";
+	  }
+	  if(string === "I love you, Grandma.") {
+	    return "I love you, too.";
+	  }
+	}
 
-    Object.keys(window).forEach(key => {
-      global[key] = window[key];
-    });
 
-    return done();
-  });
-});
+
+
+
+
+
+	
